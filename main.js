@@ -8,7 +8,10 @@ const createWindow = () => {
     webPreferences: {
       preload: path.join(import.meta.dirname, "preload.js"),
     },
+    show: false,
   });
+
+  mainWindow.maximize();
 
   mainWindow.loadURL("https://uv.markcolby.dev");
 };
