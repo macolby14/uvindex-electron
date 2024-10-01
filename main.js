@@ -3,14 +3,14 @@ import path from "node:path";
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 700,
+    height: 450,
     webPreferences: {
       preload: path.join(import.meta.dirname, "preload.js"),
     },
   });
 
-  mainWindow.loadFile("index.html");
+  mainWindow.loadURL("https://uv.markcolby.dev");
 };
 
 app.whenReady().then(() => {
