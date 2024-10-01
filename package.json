@@ -5,12 +5,26 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "electron-builder"
   },
-  "author": "",
+  "author": {
+    "name": "Mark Colby",
+    "email": "macolby14@gmail.com"
+  },
+  "homepage": "https://github.com/macolby14",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^32.1.2"
+    "electron": "^32.1.2",
+    "electron-builder": "^25.0.5"
   },
-  "type": "module"
+  "type": "module",
+  "build": {
+    "appId": "com.macolby.uvindex",
+    "linux": {
+      "target": [
+        "deb"
+      ]
+    }
+  }
 }
