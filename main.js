@@ -3,15 +3,13 @@ import path from "node:path";
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 700,
-    height: 450,
     webPreferences: {
       preload: path.join(import.meta.dirname, "preload.js"),
     },
-    show: false,
+    fullscreen: true,
   });
 
-  mainWindow.maximize();
+  mainWindow.maximize(); // incase full screen mode exited
 
   mainWindow.loadURL("https://uv.markcolby.dev");
 };
