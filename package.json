@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "electron-builder --arm64"
+    "dist": "electron-builder"
   },
   "author": {
     "name": "Mark Colby",
@@ -23,7 +23,10 @@
     "appId": "com.macolby.uvindex",
     "linux": {
       "target": [
-        "deb"
+        {
+          "target": "deb",
+          "arch": "arm64"
+        }
       ]
     }
   }
