@@ -22,6 +22,9 @@
   "build": {
     "appId": "com.macolby.uvindex",
     "linux": {
+      "publish": [
+        "github"
+      ],
       "target": [
         {
           "target": "deb",
@@ -29,5 +32,8 @@
         }
       ]
     }
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.4"
   }
 }
