@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "electron-builder"
+    "build": "electron-builder"
   },
   "author": {
     "name": "Mark Colby",
