@@ -1,6 +1,6 @@
 {
   "name": "uvindex-electron",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A UVIndex prediction wrapper",
   "main": "main.js",
   "scripts": {
