@@ -15,6 +15,13 @@ const createWindow = () => {
   mainWindow.maximize(); // incase full screen mode exited
 
   mainWindow.loadURL("https://uv.markcolby.dev");
+  autoUpdater.setFeedURL({
+    provider: "github",
+    owner: "macolby14",
+    repo: "uvindex-electron",
+    private: true,
+    token: process.env.GITHUB_TOKEN,
+  });
   autoUpdater.checkForUpdatesAndNotify();
 };
 
