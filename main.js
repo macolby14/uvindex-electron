@@ -1,5 +1,8 @@
 import { app, BrowserWindow } from "electron";
 import path from "node:path";
+import electronUpdater from "electron-updater";
+
+const { autoUpdater } = electronUpdater;
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
@@ -12,6 +15,7 @@ const createWindow = () => {
   mainWindow.maximize(); // incase full screen mode exited
 
   mainWindow.loadURL("https://uv.markcolby.dev");
+  autoUpdater.checkForUpdatesAndNotify();
 };
 
 app.whenReady().then(() => {
