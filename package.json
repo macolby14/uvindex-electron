@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "publish": "electron-builder --publish onTagOrDraft"
   },
   "author": {
     "name": "Mark Colby",
