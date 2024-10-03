@@ -2,3 +2,4 @@ node_modules/
 dist/
 .env
 init.sh # helper script to run with env variables loaded
+publish.sh # helper script to publish to npm
