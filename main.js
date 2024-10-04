@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import path from "node:path";
 import electronUpdater from "electron-updater";
 
@@ -14,7 +14,12 @@ const createWindow = () => {
 
   mainWindow.maximize(); // incase full screen mode exited
 
-  mainWindow.loadURL("https://uv.markcolby.dev");
+  const uvIndexUrl =
+    process.env.NODE_ENV === "dev"
+      ? "http://localhost:5173"
+      : "https://uv.markcolby.dev";
+
+  mainWindow.loadURL(uvIndexUrl);
   autoUpdater.setFeedURL({
     provider: "github",
     owner: "macolby14",
@@ -35,4 +40,9 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
+});
+
+ipcMain.on("close-window", (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  win.close();
 });
