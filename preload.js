@@ -1,10 +1,8 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector);
-    if (element) element.innerText = text;
-  };
+const { contextBridge, ipcRenderer } = require("electron");
+// esm loader in preload can't use esm import syntax https://www.electronjs.org/docs/latest/tutorial/esm
 
-  for (const dependency of ["chrome", "node", "electron"]) {
-    replaceText(`${dependency}-version`, process.versions[dependency]);
-  }
+console.log("preload.js ran");
+
+contextBridge.exposeInMainWorld("electron", {
+  closeWindow: () => ipcRenderer.send("close-window"),
 });
