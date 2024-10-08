@@ -1,6 +1,6 @@
 {
   "name": "uvindex-electron",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A UVIndex prediction wrapper",
   "main": "main.js",
   "scripts": {
@@ -34,6 +34,14 @@
         },
         {
           "target": "deb",
+          "arch": "x64"
+        },
+        {
+          "target": "AppImage",
+          "arch": "arm64"
+        },
+        {
+          "target": "AppImage",
           "arch": "x64"
         }
       ]
