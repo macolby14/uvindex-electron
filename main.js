@@ -59,8 +59,7 @@ const createWindow = async () => {
     provider: "github",
     owner: "macolby14",
     repo: "uvindex-electron",
-    private: true,
-    token: process.env.GITHUB_TOKEN,
+    private: false,
   });
   autoUpdater.checkForUpdatesAndNotify();
 };
