@@ -4,6 +4,21 @@ import electronUpdater from "electron-updater";
 
 const { autoUpdater } = electronUpdater;
 
+console.log("main.js ran");
+
+autoUpdater.on("update-available", () => {
+  console.log("Update available. Downloading...");
+});
+
+autoUpdater.on("update-downloaded", () => {
+  console.log("Update downloaded. Installing and restarting...");
+  autoUpdater.quitAndInstall();
+});
+
+autoUpdater.on("error", (err) => {
+  console.error("Error with autoUpdater", err);
+});
+
 const UV_INDEX_URL = "https://uv.markcolby.dev";
 const RETRY_INTERVAL_SEC = 5;
 
@@ -39,7 +54,7 @@ const createWindow = async () => {
     mainWindow.height = 400;
   }
 
-  const loadedSuccessfully = false;
+  let loadedSuccessfully = false;
 
   // try to load the page every second until it loads
   do {
@@ -61,6 +76,7 @@ const createWindow = async () => {
     repo: "uvindex-electron",
     private: false,
   });
+
   autoUpdater.checkForUpdatesAndNotify();
 };
 
