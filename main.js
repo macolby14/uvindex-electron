@@ -7,12 +7,11 @@ const { autoUpdater } = electronUpdater;
 console.log("main.js ran");
 
 autoUpdater.on("update-available", () => {
-  console.log("Update available. Downloading...");
+  console.log("Update available.");
 });
 
 autoUpdater.on("update-downloaded", () => {
-  console.log("Update downloaded. Installing and restarting...");
-  autoUpdater.quitAndInstall();
+  console.log("Update downloaded.");
 });
 
 autoUpdater.on("error", (err) => {
